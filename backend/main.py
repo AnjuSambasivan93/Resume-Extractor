@@ -66,6 +66,9 @@ async def analyze_resume(job_description: str = Form(...), files: list[UploadFil
         score = calculate_match_score(job_description, candidate_data)
         matched_skills, missing_skills = find_skill_matches(job_description, candidate_data)
 
+        candidate_dict["matched_skills"] = matched_skills
+        candidate_dict["matched_skills"] = missing_skills
+
         results.append({
             "filename": file.filename,
             "candidate": candidate_dict,
