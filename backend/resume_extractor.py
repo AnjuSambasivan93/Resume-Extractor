@@ -12,24 +12,41 @@ client = InferenceClient(provider="auto", token=token)
 
 def extract_candidate_data(resume_text):
     prompt = f"""
-    Extract the following information from the resume:
-    name
-    email
-    phone
-    location
-    skills
-    education
-    work experience
-    certifications
+        Extract candidate information from this resume.
 
-    Returns only valid JSON.
+        Return ONLY valid JSON.
 
-    Resume:
-    {resume_text}
-    """
+        Use exactly this structure:
+
+        {{
+        "name": "",
+        "email": "",
+        "phone": "",
+        "location": "",
+        "skills": [],
+        "education": [],
+        "work_experience": [],
+        "certifications": []
+        }}
+
+        Rules:
+        - Do not include any extra information or fields.
+        - name, email, phone, location must be strings.
+        - skills must be a list of strings.
+        - education must be a list of strings.
+        - work_experience must be a list of strings.
+        - certifications must be a list of strings.
+        - Do not return dictionaries inside education or work_experience.
+        - Do not add extra fields.
+        - Do not add explanations.
+        - If information is missing, use "" for strings and [] for lists.
+
+        Resume:
+        {resume_text}
+        """
 
     response = client.chat_completion(
-        model="Qwen/Qwen3.8-27B",
+        model="Qwen/Qwen3.8-27B:ovhcloud",
         messages = [
             {"role": "user", "content": prompt},
         ],
