@@ -1,7 +1,7 @@
 import JobDescription from './components/JobDescription';
 import ResumeUpload from './components/ResumeUpload';
 import AnalyzeButton from './components/AnalyzeButton';
-
+import CandidateList from "./components/CandidateList";
 
 function App() {
   return (
@@ -10,6 +10,7 @@ function App() {
       <JobDescription />
       <ResumeUpload />
       <AnalyzeButton />
+      <CandidateList />
     </div>
   );
 }

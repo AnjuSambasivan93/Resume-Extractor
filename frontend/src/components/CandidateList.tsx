@@ -10,9 +10,23 @@ return (
         {results.map((candidate, index) => (
         <div key={index}>
             <h3>{candidate.name}</h3>
-        <p>
-            Match Score: {candidate.match_score}%
-        </p>
+
+            <p><b>Email:</b> {candidate.email} </p>
+            <p><b>Phone:</b>  {candidate.phone}</p>
+            <p><b>Location:</b> { candidate.location} </p>
+
+            <p><b>Skills:</b> {candidate.skills.join(", ")}</p>
+
+            <p><b>Education:</b> {candidate.education.join(", ")}</p>
+            <p><b>Experience:</b>{candidate.work_experience.join(", ")}</p>
+
+            <p><b>Certifications</b>{candidate.certifications.join(", ")}</p>
+
+            <p><b>Match Score:</b> {candidate.match_score}%</p>
+
+            <hr />
+
+
         </div>
 
        ))}

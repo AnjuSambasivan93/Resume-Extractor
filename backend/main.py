@@ -3,12 +3,13 @@ from fastapi import FastAPI, UploadFile, File, Form
 from resume_extractor import extract_candidate_data
 import json
 from models import Candidate
-from database import save_candidate
+from database import save_candidate, create_table
 from matcher import calculate_match_score, find_skill_matches
 
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
+create_table()
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
