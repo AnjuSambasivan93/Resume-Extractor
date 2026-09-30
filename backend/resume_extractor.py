@@ -1,12 +1,13 @@
 import os
 from dotenv import load_dotenv
-from huggingface_hub import InferenceClient
+from openai import OpenAI
+
 
 load_dotenv()
 
-token = os.getenv("HF_TOKEN")
+api_key = os.getenv("OPENROUTER_API_KEY")
 
-client = InferenceClient(provider="auto", token=token)
+client = OpenAI(base_url="https://openrouter.ai/api/v1", api_key=api_key)
 
 
 
@@ -45,11 +46,11 @@ def extract_candidate_data(resume_text):
         {resume_text}
         """
 
-    response = client.chat_completion(
-        model="Qwen/Qwen3.8-27B:ovhcloud",
+    response = client.chat_completions.create(
+        model="openrouter/free",
         messages = [
             {"role": "user", "content": prompt},
         ],
     )
 
-    return response.choices[0].message["content"]
+    return response.choices[0].message.content

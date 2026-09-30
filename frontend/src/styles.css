@@ -1,10 +1,93 @@
-.app{
-    max-width: 900px;
-    margin: auto;
-    padding: 20px;
+* {
+  box-sizing: border-box;
 }
 
-.job-description textarea {
-    width: 100%;
-    min-height: 200px;
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f5f7fa;
+  color: #1f2937;
+}
+
+.app {
+  min-height: 100vh;
+}
+
+.app-header {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 20px 40px;
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 26px;
+}
+
+.app-header p {
+  margin: 5px 0 0;
+  color: #6b7280;
+}
+
+.main-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+
+.hero-section {
+  margin-bottom: 32px;
+}
+
+.hero-section h2 {
+  margin: 0 0 10px;
+  font-size: 32px;
+}
+
+.hero-section p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 650px;
+}
+
+.screening-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.input-card {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.analyze-section {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+}
+.results-section {
+  margin-top: 30px;
+}
+
+@media (max-width: 768px) {
+  .app-header {
+    padding: 20px;
+  }
+
+  .main-content {
+    padding: 30px 16px;
+  }
+
+  .screening-section {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-section h2 {
+    font-size: 26px;
+  }
 }
